@@ -3,10 +3,11 @@ import LandingPage from "./pages/LandingPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
 import { useGetLoggedInUserDetails } from "./hooks/useGetLoggedInUserDetails";
-import { PreLoginRoute } from "./components/PreLoginRoute";
 import { useIsLoggedIn } from "./hooks/useIsLoggedIn";
 import { URL } from "./utils/constants";
 import DashboardPage from "./pages/DashboardPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { PreLoginRoute } from "./components/preLoginRoute";
 
 const DashboardComponent = () => {
   const isLoggedIn = useIsLoggedIn();
@@ -20,7 +21,10 @@ function App() {
   return (
     <Routes>
       <Route path="/">
+        {/* DEFAULT ROUTE */}
         <Route index element={<LandingPage />} />
+
+        {/* PRE LOGIN */}
         <Route
           path="/register"
           element={<PreLoginRoute component={<RegistrationPage />} />}
@@ -29,7 +33,13 @@ function App() {
           path="/login"
           element={<PreLoginRoute component={<LoginPage />} />}
         />
+
+        {/* POST LOGIN */}
         <Route path="/dashboard" element={<DashboardComponent />} />
+
+        {/* NOT FOUND */}
+        <Route path="404" element={<NotFoundPage />} />
+        <Route path="*" element={<Navigate to={URL.NOT_FOUND} />} />
       </Route>
     </Routes>
   );
