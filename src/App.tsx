@@ -3,8 +3,11 @@ import LandingPage from "./pages/LandingPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
+import { useGetLoggedInUserDetails } from "./hooks/useGetLoggedInUserDetails";
 
 function App() {
+  useGetLoggedInUserDetails();
+
   return (
     <Routes>
       <Route path="/">
