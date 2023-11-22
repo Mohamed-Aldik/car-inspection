@@ -21,6 +21,7 @@ import { RootState } from "../../redux/store";
 import { logOut } from "../../redux/slices/userSlice";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { URL } from "../../utils/constants";
+import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
 
 export const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -29,7 +30,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isLogin = false;
+  const isLoggedIn = useIsLoggedIn();
   const isLoginOrRegesterPage =
     location.pathname.startsWith(URL.LOGIN_PAGE) ||
     location.pathname.startsWith(URL.REGISTER_PAGE);
@@ -60,7 +61,7 @@ export const Navbar = () => {
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>
 
-              {isLogin && (
+              {isLoggedIn && (
                 <Menu>
                   <MenuButton
                     as={Button}
@@ -96,7 +97,7 @@ export const Navbar = () => {
                 </Menu>
               )}
 
-              {!isLogin && !isLoginOrRegesterPage && (
+              {!isLoggedIn && !isLoginOrRegesterPage && (
                 <Stack
                   flex={{ base: 1, md: 0 }}
                   justify={"flex-end"}
