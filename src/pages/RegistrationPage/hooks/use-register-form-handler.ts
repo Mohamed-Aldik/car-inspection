@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { User } from "../../../types/user";
+import { URL } from "../../../utils/constants";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -74,7 +75,7 @@ const schema = yup.object().shape({
           position: "top-right",
         });
     
-        navigate("/login");
+        navigate(URL.LOGIN_PAGE);
       };
 
       return {

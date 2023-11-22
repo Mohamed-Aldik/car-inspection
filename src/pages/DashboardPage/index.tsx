@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { logOut } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import { URL } from "../../utils/constants";
 
 const DashboardPage = () => {
   const userName = useSelector((state: RootState) => state.user.user?.name);
@@ -12,7 +13,7 @@ const DashboardPage = () => {
   const handleLogout = () => {
     dispatch(logOut());
     localStorage.removeItem("loggedInUser");
-    navigate("/");
+    navigate(URL.LANDING_PAGE);
   };
 
   return (

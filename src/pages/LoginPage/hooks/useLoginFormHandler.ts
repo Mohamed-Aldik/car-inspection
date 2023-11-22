@@ -6,6 +6,7 @@ import { useToast } from "@chakra-ui/react";
 import { User } from "../../../types/user";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../../redux/slices/userSlice";
+import { URL } from "../../../utils/constants";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -58,7 +59,7 @@ export const useLoginFormHandler =()=>{
 
     dispatch(logIn({ name: user.name, email: user.email, phoneNumber: user.phoneNumber }));
     localStorage.setItem("loggedInUser", user.email);
-    navigate("/dashboard");
+    navigate(URL.DASHBOARD_PAGE);
   };
 
     return {
