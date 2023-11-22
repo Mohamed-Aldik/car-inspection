@@ -6,7 +6,7 @@ import { useToast } from "@chakra-ui/react";
 import { User } from "../../../types/user";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../../redux/slices/userSlice";
-import { URL } from "../../../utils/constants";
+import { LocalStorageKeys, URL } from "../../../utils/constants";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -30,7 +30,7 @@ export const useLoginFormHandler =()=>{
   });
 
   const onSubmit = (data: Pick<User, "email" | "password">) => {
-    const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
+    const users: User[] = JSON.parse(localStorage.getItem(LocalStorageKeys.users) || "[]");
     const user = users.find((user) => user.email === data.email);
 
     if (!user) {
@@ -58,7 +58,7 @@ export const useLoginFormHandler =()=>{
     }
 
     dispatch(logIn({ name: user.name, email: user.email, phoneNumber: user.phoneNumber }));
-    localStorage.setItem("loggedInUser", user.email);
+    localStorage.setItem(LocalStorageKeys.logged_in_user, user.email);
     navigate(URL.DASHBOARD_PAGE);
   };
 

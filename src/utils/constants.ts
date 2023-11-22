@@ -1,3 +1,9 @@
+export enum LocalStorageKeys {
+  logged_in_user = "loggedInUser",
+  users = "users",
+}
+
+
 export enum URL {
   // General
   LANDING_PAGE = '/',

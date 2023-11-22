@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { logOut } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
-import { URL } from "../../utils/constants";
+import { LocalStorageKeys, URL } from "../../utils/constants";
 import { Layout } from "../../layout";
 
 const DashboardPage = () => {
@@ -13,7 +13,7 @@ const DashboardPage = () => {
 
   const handleLogout = () => {
     dispatch(logOut());
-    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem(LocalStorageKeys.logged_in_user);
     navigate(URL.LANDING_PAGE);
   };
 

@@ -20,7 +20,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { logOut } from "../../redux/slices/userSlice";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { URL } from "../../utils/constants";
+import { LocalStorageKeys, URL } from "../../utils/constants";
 import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
 
 export const Navbar = () => {
@@ -37,7 +37,7 @@ export const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logOut());
-    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem(LocalStorageKeys.logged_in_user);
     navigate(URL.LANDING_PAGE);
   };
 

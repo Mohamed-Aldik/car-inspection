@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { User } from "../../../types/user";
-import { URL } from "../../../utils/constants";
+import { LocalStorageKeys, URL } from "../../../utils/constants";
 
 // Validation Schema
 const schema = yup.object().shape({
@@ -42,7 +42,7 @@ const schema = yup.object().shape({
       });
     
       const onSubmit = (data: User) => {
-        const users = JSON.parse(localStorage.getItem("users") || "[]");
+        const users = JSON.parse(localStorage.getItem(LocalStorageKeys.users) || "[]");
 
         if (users.some((user: User) => user.email === data.email)) {
           toast({
@@ -64,7 +64,7 @@ const schema = yup.object().shape({
         };
     
         users.push(newUser);
-        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem(LocalStorageKeys.users, JSON.stringify(users));
     
         toast({
           title: "Registration successful.",
