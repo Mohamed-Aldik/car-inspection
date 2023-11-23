@@ -1,4 +1,5 @@
 import { Layout } from "../../layout";
+import { FaqSection } from "./components/FaqSection";
 import { FooterSection } from "./components/FooterSection";
 import { HeroSection } from "./components/HeroSection";
 import { OurClientsSection } from "./components/OurClientsSection";
@@ -12,6 +13,8 @@ const LandingPage = () => {
       <OurStorySection />
 
       <OurClientsSection />
+
+      <FaqSection />
 
       <FooterSection />
     </Layout>
