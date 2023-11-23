@@ -8,7 +8,6 @@ import {
   Image,
   IconButton,
   Tooltip,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { URL } from "../../../utils/constants";
@@ -28,7 +27,12 @@ export const HeroSection = () => {
         transform={"translateY(-100%)"}
         direction="column"
       >
-        <Tooltip label={"Facebook"} closeOnClick={false} hasArrow>
+        <Tooltip
+          placement="left"
+          label={"Facebook"}
+          closeOnClick={false}
+          hasArrow
+        >
           <IconButton
             aria-label="Facebook"
             variant="ghost"
@@ -36,14 +40,18 @@ export const HeroSection = () => {
             fontSize="3xl"
             icon={<FacebookIcon fill={"red.500"} width="30px" height="30px" />}
             _hover={{
-              bg: "gray.300",
-              color: useColorModeValue("white", "gray.700"),
+              bg: "gray.200",
             }}
             isRound
           />
         </Tooltip>
 
-        <Tooltip label={"LinkedIn"} closeOnClick={false} hasArrow>
+        <Tooltip
+          placement="left"
+          label={"LinkedIn"}
+          closeOnClick={false}
+          hasArrow
+        >
           <IconButton
             aria-label="Linkedin"
             variant="ghost"
@@ -51,14 +59,18 @@ export const HeroSection = () => {
             fontSize="3xl"
             icon={<LinkedinIcon fill={"red.500"} width="30px" height="30px" />}
             _hover={{
-              bg: "gray.300",
-              color: useColorModeValue("white", "gray.700"),
+              bg: "gray.200",
             }}
             isRound
           />
         </Tooltip>
 
-        <Tooltip label={"Instagram"} closeOnClick={false} hasArrow>
+        <Tooltip
+          placement="left"
+          label={"Instagram"}
+          closeOnClick={false}
+          hasArrow
+        >
           <IconButton
             aria-label="Instagram"
             variant="ghost"
@@ -66,8 +78,7 @@ export const HeroSection = () => {
             fontSize="3xl"
             icon={<InstagramIcon fill={"red.500"} width="30px" height="30px" />}
             _hover={{
-              bg: "gray.300",
-              color: useColorModeValue("white", "gray.700"),
+              bg: "gray.200",
             }}
             isRound
           />
