@@ -5,21 +5,24 @@ import { HeroSection } from "./components/HeroSection";
 import { OurClientsSection } from "./components/OurClientsSection";
 import { OurStorySection } from "./components/OurStorySection";
 import { ChatComponent } from "./components/ChatComponent";
+import { StepsSection } from "./components/StepsSection";
 
 const LandingPage = () => {
   return (
     <Layout>
-      <ChatComponent />
-
       <HeroSection />
 
       <OurStorySection />
+
+      <StepsSection />
 
       <OurClientsSection />
 
       <FaqSection />
 
       <FooterSection />
+
+      <ChatComponent />
     </Layout>
   );
 };
