@@ -1,5 +1,6 @@
 import { Layout } from "../../layout";
 import { HeroSection } from "./components/HeroSection";
+import { OurClientsSection } from "./components/OurClientsSection";
 import { OurStorySection } from "./components/OurStorySection";
 
 const LandingPage = () => {
@@ -7,6 +8,7 @@ const LandingPage = () => {
     <Layout>
       <HeroSection />
       <OurStorySection />
+      <OurClientsSection />
     </Layout>
   );
 };

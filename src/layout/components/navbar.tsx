@@ -39,7 +39,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <Box bg={"#272c34"} px={4}>
+      <Box as={"nav"} bg={"#272c34"} px={4}>
         <Flex h={"70px"} alignItems={"center"} justifyContent={"space-between"}>
           <Text
             as={Link}

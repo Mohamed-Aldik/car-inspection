@@ -17,7 +17,7 @@ import image from "../../../assets/imgs/our-story.png";
 
 export const OurStorySection = () => {
   return (
-    <Container maxW={"6xl"} py={12}>
+    <Container as={"section"} maxW={"6xl"} p={"30px"}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Stack spacing={4} justifyContent={"center"}>
           <Text

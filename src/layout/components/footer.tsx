@@ -12,6 +12,7 @@ export const Footer = () => {
 
   return (
     <HStack
+      as={"footer"}
       justify={"space-between"}
       align={"center"}
       px={4}
