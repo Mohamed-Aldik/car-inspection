@@ -46,13 +46,27 @@ export const Navbar = () => {
             to={URL.LANDING_PAGE}
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            color={"white"}
+            color={"red.500"}
+            fontSize={"lg"}
+            fontWeight={"semibold"}
           >
             Logo
           </Text>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
+              {isLoggedIn && location.pathname == "/" && (
+                <Button
+                  as={Link}
+                  to={URL.DASHBOARD_PAGE}
+                  fontWeight={400}
+                  color={"white"}
+                  variant={"link"}
+                >
+                  Dashboard
+                </Button>
+              )}
+
               {isLoggedIn && (
                 <Menu>
                   <MenuButton

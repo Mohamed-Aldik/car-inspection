@@ -95,6 +95,9 @@ export const FooterSection = () => {
       </SimpleGrid>
 
       <Flex
+        color={"red.500"}
+        fontSize={"lg"}
+        fontWeight={"semibold"}
         align={"center"}
         _before={{
           content: '""',
