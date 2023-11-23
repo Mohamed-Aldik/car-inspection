@@ -8,14 +8,11 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  useColorModeValue,
   Stack,
-  useColorMode,
   Center,
   Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { logOut } from "../../redux/slices/userSlice";
@@ -24,7 +21,6 @@ import { LocalStorageKeys, URL } from "../../utils/constants";
 import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
 
 export const Navbar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   const userName = useSelector((state: RootState) => state.user.user?.name);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,24 +39,20 @@ export const Navbar = () => {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box bg={"#272c34"} px={4}>
         <Flex h={"70px"} alignItems={"center"} justifyContent={"space-between"}>
           <Text
             as={Link}
             to={URL.LANDING_PAGE}
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
+            color={"white"}
           >
             Logo
           </Text>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-              </Button>
-
               {isLoggedIn && (
                 <Menu>
                   <MenuButton
@@ -107,11 +99,11 @@ export const Navbar = () => {
                   <Button
                     as={Link}
                     to={URL.LOGIN_PAGE}
-                    fontSize={"sm"}
                     fontWeight={400}
+                    color={"white"}
                     variant={"link"}
                   >
-                    Sign In
+                    Login
                   </Button>
 
                   <Button
@@ -126,7 +118,26 @@ export const Navbar = () => {
                       bg: "red.400",
                     }}
                   >
-                    Sign Up
+                    Register
+                  </Button>
+                </Stack>
+              )}
+
+              {isLoginOrRegesterPage && (
+                <Stack
+                  flex={{ base: 1, md: 0 }}
+                  justify={"flex-end"}
+                  direction={"row"}
+                  spacing={6}
+                >
+                  <Button
+                    as={Link}
+                    to={URL.LANDING_PAGE}
+                    fontWeight={400}
+                    variant={"link"}
+                    color={"white"}
+                  >
+                    Home
                   </Button>
                 </Stack>
               )}

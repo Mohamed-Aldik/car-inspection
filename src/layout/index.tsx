@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import { Box } from "@chakra-ui/react";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
+import { Box } from "@chakra-ui/react";
 
 interface LayoutProps {
   children?: ReactNode;
@@ -9,12 +9,12 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps): JSX.Element {
   return (
-    <>
+    <Box bg={"#f5f7fa"}>
       <Navbar />
-      <Box as="section" minH="calc(100vh - 140px)">
-        {children}
-      </Box>
+
+      {children}
+
       <Footer />
-    </>
+    </Box>
   );
 }

@@ -1,10 +1,4 @@
-import {
-  ButtonGroup,
-  HStack,
-  IconButton,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { ButtonGroup, HStack, IconButton, Text } from "@chakra-ui/react";
 import { FacebookIcon } from "../../icons/facebookIcon";
 import { LinkedinIcon } from "../../icons/linkedinIcon";
 import { InstagramIcon } from "../../icons/instagramIcon";
@@ -22,19 +16,18 @@ export const Footer = () => {
       align={"center"}
       px={4}
       h={"70px"}
-      bg={useColorModeValue("gray.100", "gray.900")}
+      bg={"#272c34"}
     >
-      <Text fontSize="sm">
+      <Text color={"white"} fontSize="sm">
         &copy; {new Date().getFullYear()} Footer Section
       </Text>
-
       <ButtonGroup variant="tertiary">
         <IconButton
           as={"a"}
           href={social.facebook}
           target="_blank"
           aria-label="Facebook"
-          icon={<FacebookIcon boxSize={["15px", "20px"]} fill={"red.500"} />}
+          icon={<FacebookIcon boxSize={["15px", "20px"]} />}
         />
 
         <IconButton
@@ -42,7 +35,7 @@ export const Footer = () => {
           href={social.linkedIn}
           target="_blank"
           aria-label="LinkedIn"
-          icon={<LinkedinIcon boxSize={["15px", "20px"]} fill={"red.500"} />}
+          icon={<LinkedinIcon boxSize={["15px", "20px"]} />}
         />
 
         <IconButton
@@ -50,7 +43,7 @@ export const Footer = () => {
           href={social.instagram}
           target="_blank"
           aria-label="Instagram"
-          icon={<InstagramIcon boxSize={["15px", "20px"]} fill={"red.500"} />}
+          icon={<InstagramIcon boxSize={["15px", "20px"]} />}
         />
       </ButtonGroup>
     </HStack>
