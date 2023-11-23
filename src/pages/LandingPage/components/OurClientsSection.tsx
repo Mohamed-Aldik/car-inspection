@@ -6,10 +6,12 @@ export const OurClientsSection = () => {
   return (
     <VStack
       spacing={"50px"}
-      align={"center"}
-      justifyContent={"center"}
       p={"30px"}
       as={"section"}
+      minH={"70vh"}
+      display={"flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
     >
       <VStack spacing={0} align={"center"}>
         <Heading>Our Clients</Heading>

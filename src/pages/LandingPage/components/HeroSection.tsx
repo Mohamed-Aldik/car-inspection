@@ -18,7 +18,15 @@ import { LinkedinIcon } from "../../../icons/linkedinIcon";
 
 export const HeroSection = () => {
   return (
-    <Box as="main" position={"relative"} p={"30px"}>
+    <Box
+      as="main"
+      position={"relative"}
+      p={"30px"}
+      minH={"70vh"}
+      display={"flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+    >
       <Stack
         display={{ base: "none", md: "flex" }}
         position={"absolute"}
