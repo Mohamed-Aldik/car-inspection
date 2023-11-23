@@ -109,7 +109,6 @@ export const Navbar = () => {
                   <Button
                     as={Link}
                     to={URL.REGISTER_PAGE}
-                    display={{ base: "none", md: "inline-flex" }}
                     fontSize={"sm"}
                     fontWeight={600}
                     color={"white"}
