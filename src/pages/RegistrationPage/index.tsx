@@ -10,28 +10,27 @@ import {
   Text,
   Heading,
   useColorModeValue,
-  InputRightElement,
-  InputGroup,
   Container,
 } from "@chakra-ui/react";
 import { useRegisterFormHandler } from "./hooks/use-register-form-handler";
 import { Layout } from "../../layout";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { useState } from "react";
 import { URL } from "../../utils/constants";
 import { Link } from "react-router-dom";
+import { PasswordInput } from "../../components/passwordInput";
 
 const RegistrationPage = () => {
   const { errors, handleSubmit, register, onSubmit } = useRegisterFormHandler();
-  const [showPassword, setShowPassword] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState(false);
 
   return (
     <Layout>
       <Container as={Flex} align={"center"} minH="calc(100vh - 140px)">
         <Stack flex={1} spacing={8} py={12} px={6}>
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"} textAlign={"center"}>
+            <Heading
+              fontSize={"4xl"}
+              textAlign={"center"}
+              textTransform={"uppercase"}
+            >
               Sign up
             </Heading>
 
@@ -50,6 +49,7 @@ const RegistrationPage = () => {
               p={4}
               onSubmit={handleSubmit(onSubmit)}
               spacing={4}
+              noValidate
             >
               <FormControl isInvalid={!!errors.name} isRequired>
                 <FormLabel htmlFor="name">Name</FormLabel>
@@ -73,25 +73,7 @@ const RegistrationPage = () => {
 
               <FormControl isInvalid={!!errors.password} isRequired>
                 <FormLabel htmlFor="password">Password</FormLabel>
-
-                <InputGroup>
-                  <Input
-                    id="password"
-                    type={showPassword ? "text" : "password"}
-                    {...register("password")}
-                  />
-
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)
-                      }
-                    >
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
+                <PasswordInput {...register("password")} />
                 <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
               </FormControl>
 
@@ -100,26 +82,7 @@ const RegistrationPage = () => {
                   Confirm Password
                 </FormLabel>
 
-                <InputGroup>
-                  <Input
-                    id="confirmPassword"
-                    type={confirmPassword ? "text" : "password"}
-                    {...register("confirmPassword")}
-                  />
-
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setConfirmPassword(
-                          (confirmPassword) => !confirmPassword
-                        )
-                      }
-                    >
-                      {confirmPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
+                <PasswordInput {...register("confirmPassword")} />
                 <FormErrorMessage>
                   {errors.confirmPassword?.message}
                 </FormErrorMessage>

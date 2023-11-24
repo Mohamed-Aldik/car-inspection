@@ -33,7 +33,6 @@ export const FaqSection = () => {
 
         <VStack flex={1} align={"stretch"} boxShadow={"2xl"} rounded={"lg"}>
           <Heading
-            as={"h2"}
             fontSize={{ base: "xl", sm: "2xl" }}
             textAlign={"center"}
             my={5}

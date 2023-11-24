@@ -9,11 +9,9 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps): JSX.Element {
   return (
-    <Box bg={"#f5f7fa"}>
+    <Box bgColor="gray.50">
       <Navbar />
-
       {children}
-
       <Footer />
     </Box>
   );

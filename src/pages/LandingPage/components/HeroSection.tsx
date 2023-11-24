@@ -6,93 +6,21 @@ import {
   Stack,
   Text,
   Image,
-  IconButton,
-  Tooltip,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { URL } from "../../../utils/constants";
 import carImage from "../../../assets/imgs/inspection-car.png";
-import { FacebookIcon } from "../../../icons/facebookIcon";
-import { InstagramIcon } from "../../../icons/instagramIcon";
-import { LinkedinIcon } from "../../../icons/linkedinIcon";
 
 export const HeroSection = () => {
   return (
     <Box
       as="main"
-      position={"relative"}
       p={"30px"}
       minH={"70vh"}
       display={"flex"}
       alignItems={"center"}
       justifyContent={"center"}
     >
-      <Stack
-        display={{ base: "none", md: "flex" }}
-        position={"absolute"}
-        top={"50%"}
-        right={"1%"}
-        transform={"translateY(-100%)"}
-        direction="column"
-      >
-        <Tooltip
-          placement="left"
-          label={"Facebook"}
-          closeOnClick={false}
-          hasArrow
-        >
-          <IconButton
-            aria-label="Facebook"
-            variant="ghost"
-            size="lg"
-            fontSize="3xl"
-            icon={<FacebookIcon fill={"red.500"} width="30px" height="30px" />}
-            _hover={{
-              bg: "gray.200",
-            }}
-            isRound
-          />
-        </Tooltip>
-
-        <Tooltip
-          placement="left"
-          label={"LinkedIn"}
-          closeOnClick={false}
-          hasArrow
-        >
-          <IconButton
-            aria-label="Linkedin"
-            variant="ghost"
-            size="lg"
-            fontSize="3xl"
-            icon={<LinkedinIcon fill={"red.500"} width="30px" height="30px" />}
-            _hover={{
-              bg: "gray.200",
-            }}
-            isRound
-          />
-        </Tooltip>
-
-        <Tooltip
-          placement="left"
-          label={"Instagram"}
-          closeOnClick={false}
-          hasArrow
-        >
-          <IconButton
-            aria-label="Instagram"
-            variant="ghost"
-            size="lg"
-            fontSize="3xl"
-            icon={<InstagramIcon fill={"red.500"} width="30px" height="30px" />}
-            _hover={{
-              bg: "gray.200",
-            }}
-            isRound
-          />
-        </Tooltip>
-      </Stack>
-
       <Stack
         textAlign={"center"}
         align={"center"}
@@ -130,7 +58,9 @@ export const HeroSection = () => {
             Get started
           </Button>
 
-          <Button px={6}>Learn more</Button>
+          <Button as={"a"} href="#story" px={6}>
+            Learn more
+          </Button>
         </Stack>
 
         <Flex w={"full"} justify={"center"}>

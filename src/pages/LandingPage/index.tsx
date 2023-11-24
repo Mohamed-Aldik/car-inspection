@@ -4,7 +4,7 @@ import { FooterSection } from "./components/FooterSection";
 import { HeroSection } from "./components/HeroSection";
 import { OurClientsSection } from "./components/OurClientsSection";
 import { OurStorySection } from "./components/OurStorySection";
-import { ChatComponent } from "./components/ChatComponent";
+import { SocialMediaComponent } from "./components/SocialMediaComponent";
 import { StepsSection } from "./components/StepsSection";
 
 const LandingPage = () => {
@@ -22,7 +22,7 @@ const LandingPage = () => {
 
       <FooterSection />
 
-      <ChatComponent />
+      <SocialMediaComponent />
     </Layout>
   );
 };

@@ -11,26 +11,26 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  InputGroup,
-  InputRightElement,
 } from "@chakra-ui/react";
 import { useLoginFormHandler } from "./hooks/useLoginFormHandler";
 import { Layout } from "../../layout";
 import { URL } from "../../utils/constants";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { PasswordInput } from "../../components/passwordInput";
 
 const LoginPage = () => {
   const { errors, handleSubmit, register, onSubmit } = useLoginFormHandler();
-  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <Layout>
       <Container as={Flex} align={"center"} minH="calc(100vh - 140px)">
         <Stack flex={1} spacing={8} py={12} px={6}>
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"} textAlign={"center"}>
+            <Heading
+              fontSize={"4xl"}
+              textAlign={"center"}
+              textTransform={"uppercase"}
+            >
               Sign in
             </Heading>
 
@@ -49,6 +49,7 @@ const LoginPage = () => {
               p={4}
               onSubmit={handleSubmit(onSubmit)}
               spacing={4}
+              noValidate
             >
               <FormControl isInvalid={!!errors.email} isRequired>
                 <FormLabel htmlFor="email">Email</FormLabel>
@@ -58,25 +59,7 @@ const LoginPage = () => {
 
               <FormControl isInvalid={!!errors.password} isRequired>
                 <FormLabel htmlFor="password">Password</FormLabel>
-
-                <InputGroup>
-                  <Input
-                    id="password"
-                    type={showPassword ? "text" : "password"}
-                    {...register("password")}
-                  />
-
-                  <InputRightElement h={"full"}>
-                    <Button
-                      variant={"ghost"}
-                      onClick={() =>
-                        setShowPassword((showPassword) => !showPassword)
-                      }
-                    >
-                      {showPassword ? <ViewIcon /> : <ViewOffIcon />}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
+                <PasswordInput id="password" {...register("password")} />
                 <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
               </FormControl>
 

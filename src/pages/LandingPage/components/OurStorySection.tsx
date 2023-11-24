@@ -18,6 +18,7 @@ import image from "../../../assets/imgs/our-story.png";
 export const OurStorySection = () => {
   return (
     <Container
+      id="story"
       as={"section"}
       maxW={"6xl"}
       p={"30px"}
@@ -28,20 +29,7 @@ export const OurStorySection = () => {
     >
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Stack spacing={4} justifyContent={"center"}>
-          <Text
-            textTransform={"uppercase"}
-            color={"white"}
-            fontWeight={600}
-            fontSize={"sm"}
-            bg={useColorModeValue("red.500", "red.900")}
-            p={2}
-            alignSelf={"flex-start"}
-            rounded={"md"}
-          >
-            Our Story
-          </Text>
-
-          <Heading>This is the headline</Heading>
+          <Heading> Our Story</Heading>
 
           <Text color={"gray.500"} fontSize={"lg"}>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam

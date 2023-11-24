@@ -28,9 +28,7 @@ export const StepsSection = () => {
     >
       <Box>
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
-          <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-            Short heading
-          </Heading>
+          <Heading>Short heading</Heading>
 
           <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
             Whether you are buying, selling or underwriting Carantee makes your
