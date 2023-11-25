@@ -1,0 +1,9 @@
+**/node_modules/*
+**/out/*
+**/.next/*
+**/dist/*
+**/build/*
+**/test/*
+**/.scripts/*
+**/.husky/*
+**/.github/*

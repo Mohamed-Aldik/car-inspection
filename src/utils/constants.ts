@@ -1,6 +1,7 @@
 export enum LocalStorageKeys {
   logged_in_user = "loggedInUser",
   users = "users",
+  inspections = 'inspections'
 }
 
 
@@ -13,8 +14,7 @@ export enum URL {
   REGISTER_PAGE = '/register',
   LOGIN_PAGE = '/login',
 
-  
+
   // Dashboard
   DASHBOARD_PAGE = '/dashboard',
-  
 }
