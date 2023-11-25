@@ -11,14 +11,15 @@ import {
   Stack,
   Center,
   Text,
+  Image,
   useBreakpointValue,
-} from "@chakra-ui/react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../redux/store";
-import { logOut } from "../../redux/slices/userSlice";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { LocalStorageKeys, URL } from "../../utils/constants";
-import { useIsLoggedIn } from "../../hooks/useIsLoggedIn";
+} from '@chakra-ui/react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../redux/store';
+import { logOut } from '../../redux/slices/userSlice';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { LocalStorageKeys, URL } from '../../utils/constants';
+import { useIsLoggedIn } from '../../hooks/useIsLoggedIn';
 
 export const Navbar = () => {
   const userName = useSelector((state: RootState) => state.user.user?.name);
@@ -28,8 +29,7 @@ export const Navbar = () => {
 
   const isLoggedIn = useIsLoggedIn();
   const isLoginOrRegesterPage =
-    location.pathname.startsWith(URL.LOGIN_PAGE) ||
-    location.pathname.startsWith(URL.REGISTER_PAGE);
+    location.pathname.startsWith(URL.LOGIN_PAGE) || location.pathname.startsWith(URL.REGISTER_PAGE);
 
   const handleLogout = () => {
     dispatch(logOut());
@@ -39,61 +39,38 @@ export const Navbar = () => {
 
   return (
     <>
-      <Box as={"nav"} bg={"#272c34"} px={4}>
-        <Flex h={"70px"} alignItems={"center"} justifyContent={"space-between"}>
-          <Text
-            as={Link}
-            to={URL.LANDING_PAGE}
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={"red.500"}
-            fontSize={"lg"}
-            fontWeight={"semibold"}
-          >
-            Logo
-          </Text>
+      <Box as={'nav'} bg={'#272c34'} px={4}>
+        <Flex h={'70px'} alignItems={'center'} justifyContent={'space-between'}>
+          <Box as={Link} to={URL.LANDING_PAGE}>
+            <Image
+              src='https://www.emiratesauction.com/assets/latestHome/header/EnglishLogo.svg'
+              alt='EA-logo'
+              loading='lazy'
+              rel='preload'
+            />
+          </Box>
 
-          <Flex alignItems={"center"}>
-            <Stack direction={"row"} spacing={7}>
-              {isLoggedIn && location.pathname == "/" && (
-                <Button
-                  as={Link}
-                  to={URL.DASHBOARD_PAGE}
-                  fontWeight={400}
-                  color={"white"}
-                  variant={"link"}
-                >
+          <Flex alignItems={'center'}>
+            <Stack direction={'row'} spacing={7}>
+              {isLoggedIn && location.pathname == '/' && (
+                <Button as={Link} to={URL.DASHBOARD_PAGE} fontWeight={400} color={'white'} variant={'link'}>
                   Dashboard
                 </Button>
               )}
 
               {isLoggedIn && (
                 <Menu>
-                  <MenuButton
-                    as={Button}
-                    rounded={"full"}
-                    variant={"link"}
-                    cursor={"pointer"}
-                    minW={0}
-                  >
-                    <Avatar
-                      size={"sm"}
-                      src={"https://avatars.dicebear.com/api/male/username.svg"}
-                    />
+                  <MenuButton as={Button} rounded={'full'} variant={'link'} cursor={'pointer'} minW={0}>
+                    <Avatar size={'sm'} src={'https://avatars.dicebear.com/api/male/username.svg'} />
                   </MenuButton>
 
                   <MenuList>
                     <Center>
-                      <Avatar
-                        size={"2xl"}
-                        src={
-                          "https://avatars.dicebear.com/api/male/username.svg"
-                        }
-                      />
+                      <Avatar size={'2xl'} src={'https://avatars.dicebear.com/api/male/username.svg'} />
                     </Center>
 
                     <Center>
-                      <Text p={"10px"}>{userName}</Text>
+                      <Text p={'10px'}>{userName}</Text>
                     </Center>
 
                     <MenuDivider />
@@ -104,52 +81,29 @@ export const Navbar = () => {
               )}
 
               {!isLoggedIn && !isLoginOrRegesterPage && (
-                <Stack
-                  flex={{ base: 1, md: 0 }}
-                  justify={"flex-end"}
-                  direction={"row"}
-                  spacing={6}
-                >
-                  <Button
-                    as={Link}
-                    to={URL.LOGIN_PAGE}
-                    fontWeight={400}
-                    color={"white"}
-                    variant={"link"}
-                  >
+                <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
+                  <Button as={Link} to={URL.LOGIN_PAGE} fontWeight={400} color={'white'} variant={'link'}>
                     Login
                   </Button>
 
                   <Button
                     as={Link}
                     to={URL.REGISTER_PAGE}
-                    fontSize={"sm"}
+                    fontSize={'sm'}
                     fontWeight={600}
-                    color={"white"}
-                    colorScheme="red"
+                    color={'white'}
+                    colorScheme='red'
                     _hover={{
-                      bg: "red.400",
-                    }}
-                  >
+                      bg: 'red.400',
+                    }}>
                     Register
                   </Button>
                 </Stack>
               )}
 
               {isLoginOrRegesterPage && (
-                <Stack
-                  flex={{ base: 1, md: 0 }}
-                  justify={"flex-end"}
-                  direction={"row"}
-                  spacing={6}
-                >
-                  <Button
-                    as={Link}
-                    to={URL.LANDING_PAGE}
-                    fontWeight={400}
-                    variant={"link"}
-                    color={"white"}
-                  >
+                <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
+                  <Button as={Link} to={URL.LANDING_PAGE} fontWeight={400} variant={'link'} color={'white'}>
                     Home
                   </Button>
                 </Stack>

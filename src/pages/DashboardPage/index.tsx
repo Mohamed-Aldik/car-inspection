@@ -1,84 +1,70 @@
-import {
-  Box,
-  HStack,
-  IconButton,
-  SimpleGrid,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-  Text,
-} from "@chakra-ui/react";
-import { Layout } from "../../layout";
-import { usersDetails } from "./utils/usersDetails";
-import { UsersDetailsComponent } from "./components/UsersDetailsComponent";
-import { AddIcon } from "@chakra-ui/icons";
-import { AddModalComponent } from "./components/AddModalComponent";
+import { Button, Container, HStack, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react';
+import { Layout } from '../../layout';
+import { AddIcon } from '@chakra-ui/icons';
+import { AddModalComponent } from './components/AddModalComponent';
+import { CardComponent } from './components/CardComponent';
+import { useGetInspectionData } from './hooks/useGetInspectionData';
 
 const DashboardPage = () => {
+  const inspectionData = useGetInspectionData();
+
   return (
     <Layout>
-      <Box
-        textAlign={"center"}
-        as={"section"}
-        p={"30px"}
-        w={"full"}
-        minH={"calc(100vh - 140px)"}
-      >
-        <HStack
-          p={"md"}
-          align={"center"}
-          justifyContent={"space-between"}
-          mb={"30px"}
-        >
-          <Text fontSize={"2xl"} fontWeight={"semibold"}>
-            Dashboard
-          </Text>
+      <Container textAlign={'center'} as={'section'} p={'30px'} maxW={'6xl'} minH={'calc(100vh - 140px)'}>
+        <HStack p={'md'} align={'center'} justifyContent={'space-between'} mb={'30px'}>
+          <Heading size={'lg'}>Dashboard</Heading>
+
           <AddModalComponent
             trigger={
-              <IconButton
-                aria-label="add"
-                variant="ghost"
-                size="lg"
-                fontSize="3xl"
-                bg={"red.500"}
-                icon={<AddIcon color={"white"} width="25px" height="25px" />}
-                _hover={{
-                  bg: "red.400",
-                }}
-              />
+              <Button leftIcon={<AddIcon />} colorScheme='red' title='add new inspection' variant='solid'>
+                New inspection
+              </Button>
             }
           />
         </HStack>
 
-        <Tabs>
+        <Tabs colorScheme='red' variant='enclosed'>
           <TabList>
-            <Tab>One</Tab>
-            <Tab>Two</Tab>
+            <Tab>Upcoming</Tab>
+            <Tab>History</Tab>
           </TabList>
 
           <TabPanels>
-            <TabPanel>
-              <SimpleGrid
-                alignContent={"center"}
-                w={"full"}
-                justifyContent={"center"}
-                columns={{ base: 1, xl: 2 }}
-                spacing={"20"}
-              >
-                {usersDetails.map((userDetails, index) => (
-                  <UsersDetailsComponent key={index} {...userDetails} />
-                ))}
-              </SimpleGrid>
+            <TabPanel as={VStack} spacing={'15px'} align={'stretch'}>
+              {inspectionData.upcoming?.map((i: any, index: any) => (
+                <CardComponent
+                  key={index}
+                  image={i.image}
+                  date={i.date}
+                  make={i.make}
+                  model={i.model}
+                  plate={i.numberPlate}
+                  color={i.color}
+                  vinNumber={i.vinNumber}
+                  year={i.year}
+                />
+              ))}
             </TabPanel>
 
-            <TabPanel>
-              <p>three!</p>
+            <TabPanel as={VStack} spacing={'15px'} align={'stretch'}>
+              {inspectionData.history?.map((i: any, index: any) => (
+                <CardComponent
+                  key={index}
+                  image={i.image}
+                  date={i.date}
+                  make={i.make}
+                  model={i.model}
+                  plate={i.numberPlate}
+                  color={i.color}
+                  vinNumber={i.vinNumber}
+                  year={i.year}
+                  status={i.status}
+                />
+              ))}
             </TabPanel>
           </TabPanels>
         </Tabs>
-      </Box>
+      </Container>
     </Layout>
   );
 };

@@ -25,8 +25,9 @@ export const OurClientsSection = () => {
         justifyContent={"center"}
         maxW={"6xl"}
       >
-        {usersInfo.map((user) => (
+        {usersInfo.map((user, index) => (
           <AvatarComponent
+            key={index}
             name={user.name}
             subName={user.subName}
             title={user.title}
