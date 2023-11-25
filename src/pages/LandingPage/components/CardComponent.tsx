@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Stack, Text, VStack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Text, VStack, useColorModeValue } from '@chakra-ui/react';
 import { ReactElement } from 'react';
 
 interface CardProps {
