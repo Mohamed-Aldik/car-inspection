@@ -1,19 +1,44 @@
-import { Button, Container, HStack, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from '@chakra-ui/react';
+import {
+  Button,
+  Container,
+  HStack,
+  Heading,
+  Spinner,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  VStack,
+} from '@chakra-ui/react';
 import { Layout } from '../../layout';
 import { AddIcon } from '@chakra-ui/icons';
 import { AddModalComponent } from './components/AddModalComponent';
 import { CardComponent } from './components/CardComponent';
 import { useGetInspectionData } from './hooks/useGetInspectionData';
 import { CardSkeleton } from './components/CardSkeleton';
+import { useEffect, useState } from 'react';
 
 const DashboardPage = () => {
+  const [isFakeLoading, setIsFakeLoading] = useState(true);
+
   const inspectionData = useGetInspectionData();
+
+  // Add Fake Loading
+  useEffect(() => {
+    setTimeout(() => {
+      setIsFakeLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <Layout>
       <Container textAlign={'center'} as={'section'} p={'30px'} maxW={'6xl'} minH={'calc(100vh - 140px)'}>
         <HStack p={'md'} align={'center'} justifyContent={'space-between'} mb={'30px'}>
-          <Heading size={'lg'}>Dashboard</Heading>
+          <Heading size={'lg'}>
+            Dashboard
+            {isFakeLoading && <Spinner ml='10px' color='red.500' />}
+          </Heading>
 
           <AddModalComponent
             trigger={
@@ -32,8 +57,9 @@ const DashboardPage = () => {
 
           <TabPanels>
             <TabPanel as={VStack} spacing={'15px'} align={'stretch'}>
-              {inspectionData && <CardSkeleton />}
-              {inspectionData &&
+              {isFakeLoading && <CardSkeleton />}
+
+              {!isFakeLoading &&
                 inspectionData?.upcoming?.map((i: any, index: any) => (
                   <CardComponent
                     key={index}
@@ -50,20 +76,23 @@ const DashboardPage = () => {
             </TabPanel>
 
             <TabPanel as={VStack} spacing={'15px'} align={'stretch'}>
-              {inspectionData.history?.map((i: any, index: any) => (
-                <CardComponent
-                  key={index}
-                  image={i.image}
-                  date={i.date}
-                  make={i.make}
-                  model={i.model}
-                  plate={i.numberPlate}
-                  color={i.color}
-                  vinNumber={i.vinNumber}
-                  year={i.year}
-                  status={i.status}
-                />
-              ))}
+              {isFakeLoading && <CardSkeleton />}
+
+              {!isFakeLoading &&
+                inspectionData.history?.map((i: any, index: any) => (
+                  <CardComponent
+                    key={index}
+                    image={i.image}
+                    date={i.date}
+                    make={i.make}
+                    model={i.model}
+                    plate={i.numberPlate}
+                    color={i.color}
+                    vinNumber={i.vinNumber}
+                    year={i.year}
+                    status={i.status}
+                  />
+                ))}
             </TabPanel>
           </TabPanels>
         </Tabs>

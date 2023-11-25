@@ -56,7 +56,7 @@ export const CardComponent = (props: CardComponentProps) => {
 
       <CardBody>
         <Stack direction={{ base: 'column-reverse', md: 'row' }} align={'start'} justify={'space-between'}>
-          <VStack align={'start'}>
+          <VStack align={'start'} spacing={'20px'}>
             <Heading fontWeight={'semibold'} size='md'>
               <Text textTransform={'uppercase'} display={'inline'}>
                 {make}

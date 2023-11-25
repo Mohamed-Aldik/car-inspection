@@ -34,7 +34,6 @@ export const useAddNewInspectionFormHandler = () => {
     control,
     reset,
     setValue,
-    watch,
     register,
     handleSubmit,
     formState: { errors },
@@ -42,7 +41,7 @@ export const useAddNewInspectionFormHandler = () => {
     resolver: yupResolver(schema),
     mode: 'onChange',
   });
-  console.log(watch('image'));
+
   const onSubmit = (data: any, onClose: () => void) => {
     setNewInspection({ ...data, status: 'pending' });
 
