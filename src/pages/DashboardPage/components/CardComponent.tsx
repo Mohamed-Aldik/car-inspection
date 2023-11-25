@@ -11,13 +11,13 @@ import {
   MenuItem,
   MenuList,
   Stack,
-  Image,
   HStack,
   Tag,
   Box,
 } from '@chakra-ui/react';
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
 import { ThreeDotsVerticalIcon } from '../icons/threeDotsVerticalIcon';
+import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 interface CardComponentProps {
   image: string;
@@ -37,7 +37,7 @@ export const CardComponent = (props: CardComponentProps) => {
   return (
     <Card direction={{ base: 'column', md: 'row' }} overflow='hidden' variant='outline'>
       <Box alignSelf={'center'} position={'relative'} w={{ base: '100%', md: '30%' }} h={{ base: '100%', md: '250px' }}>
-        <Image objectFit='cover' w={'100%'} h={'100%'} src={image} alt='car inspection' />
+        <LazyLoadedImage objectFit='cover' w={'100%'} h={'100%'} src={image} alt='car inspection' />
 
         <Tag
           position={'absolute'}

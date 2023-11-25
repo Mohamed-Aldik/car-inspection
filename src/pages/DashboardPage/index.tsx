@@ -4,6 +4,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import { AddModalComponent } from './components/AddModalComponent';
 import { CardComponent } from './components/CardComponent';
 import { useGetInspectionData } from './hooks/useGetInspectionData';
+import { CardSkeleton } from './components/CardSkeleton';
 
 const DashboardPage = () => {
   const inspectionData = useGetInspectionData();
@@ -31,19 +32,21 @@ const DashboardPage = () => {
 
           <TabPanels>
             <TabPanel as={VStack} spacing={'15px'} align={'stretch'}>
-              {inspectionData.upcoming?.map((i: any, index: any) => (
-                <CardComponent
-                  key={index}
-                  image={i.image}
-                  date={i.date}
-                  make={i.make}
-                  model={i.model}
-                  plate={i.numberPlate}
-                  color={i.color}
-                  vinNumber={i.vinNumber}
-                  year={i.year}
-                />
-              ))}
+              {inspectionData && <CardSkeleton />}
+              {inspectionData &&
+                inspectionData?.upcoming?.map((i: any, index: any) => (
+                  <CardComponent
+                    key={index}
+                    image={i.image}
+                    date={i.date}
+                    make={i.make}
+                    model={i.model}
+                    plate={i.numberPlate}
+                    color={i.color}
+                    vinNumber={i.vinNumber}
+                    year={i.year}
+                  />
+                ))}
             </TabPanel>
 
             <TabPanel as={VStack} spacing={'15px'} align={'stretch'}>

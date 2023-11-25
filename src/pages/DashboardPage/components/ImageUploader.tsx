@@ -1,6 +1,7 @@
 import { AddIcon } from '@chakra-ui/icons';
-import { FormControl, FormLabel, Input, Box, Image, VStack, FormErrorMessage } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Box, VStack, FormErrorMessage } from '@chakra-ui/react';
 import { useState } from 'react';
+import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 interface ImageUploaderProps {
   setValue: any;
@@ -51,7 +52,7 @@ export const ImageUploader = ({ setValue, errMsg }: ImageUploaderProps) => {
 
       {selectedImage && (
         <Box mt={4}>
-          <Image src={URL.createObjectURL(selectedImage)} alt='car' maxW={'350px'} />
+          <LazyLoadedImage src={URL.createObjectURL(selectedImage)} alt='car' maxW={'350px'} />
         </Box>
       )}
     </VStack>
