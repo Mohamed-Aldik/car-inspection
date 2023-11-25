@@ -12,7 +12,6 @@ import {
   Center,
   Text,
   Image,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
