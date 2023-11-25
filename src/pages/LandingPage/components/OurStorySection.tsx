@@ -1,4 +1,4 @@
-import { SimpleGrid, Stack, useColorModeValue, Heading, StackDivider, Flex, Text, Container } from '@chakra-ui/react';
+import { SimpleGrid, Heading, StackDivider, Text, Container, VStack } from '@chakra-ui/react';
 import { FeatureComponent } from './FeatureComponent';
 import { IoAnalyticsSharpIcon } from '../icons/IoAnalyticsSharpIcon';
 import { IoLogoBitcoinIcon } from '../icons/IoLogoBitcoinIcon';
@@ -8,47 +8,27 @@ import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 export const OurStorySection = () => {
   return (
-    <Container
-      id='story'
-      as={'section'}
-      maxW={'6xl'}
-      p={'30px'}
-      minH={'70vh'}
-      display={'flex'}
-      alignItems={'center'}
-      justifyContent={'center'}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-        <Stack spacing={4} justifyContent={'center'}>
-          <Heading> Our Story</Heading>
+    <Container id='story' as={'section'} p={'70px'} maxW={'6xl'}>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={'30px'}>
+        <VStack spacing={'30px'} align={'stretch'} justify={'center'}>
+          <VStack align={'stretch'} spacing={'10px'}>
+            <Heading>Our Story</Heading>
 
-          <Text color={'gray.500'} fontSize={'lg'}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-          </Text>
+            <Text color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
+            </Text>
+          </VStack>
 
-          <Stack spacing={4} divider={<StackDivider borderColor={useColorModeValue('gray.100', 'gray.700')} />}>
-            <FeatureComponent
-              icon={<IoAnalyticsSharpIcon />}
-              iconBg={useColorModeValue('yellow.400', 'yellow.900')}
-              text={'Business Planning'}
-            />
+          <VStack spacing={'20px'} align={'stretch'} divider={<StackDivider borderColor={'gray.300'} />}>
+            <FeatureComponent icon={<IoAnalyticsSharpIcon />} iconBg={'yellow.400'} text={'Business Planning'} />
 
-            <FeatureComponent
-              icon={<IoLogoBitcoinIcon />}
-              iconBg={useColorModeValue('green.400', 'green.900')}
-              text={'Financial Planning'}
-            />
+            <FeatureComponent icon={<IoLogoBitcoinIcon />} iconBg={'green.400'} text={'Financial Planning'} />
 
-            <FeatureComponent
-              icon={<IoSearchSharpIcon />}
-              iconBg={useColorModeValue('purple.400', 'purple.900')}
-              text={'Market Analysis'}
-            />
-          </Stack>
-        </Stack>
+            <FeatureComponent icon={<IoSearchSharpIcon />} iconBg={'purple.400'} text={'Market Analysis'} />
+          </VStack>
+        </VStack>
 
-        <Flex>
-          <LazyLoadedImage rounded={'md'} alt={'feature image'} src={image} objectFit={'cover'} />
-        </Flex>
+        <LazyLoadedImage rounded={'md'} alt={'feature image'} src={image} objectFit={'cover'} />
       </SimpleGrid>
     </Container>
   );

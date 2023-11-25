@@ -34,6 +34,9 @@ interface CardComponentProps {
 export const CardComponent = (props: CardComponentProps) => {
   const { image, date, make, model, plate, color, vinNumber, year, status } = props;
 
+  // Format the date
+  const formattedDate = new Date(date).toISOString().split('T')[0];
+
   return (
     <Card direction={{ base: 'column', md: 'row' }} overflow='hidden' variant='outline'>
       <Box alignSelf={'center'} position={'relative'} w={{ base: '100%', md: '30%' }} h={{ base: '100%', md: '250px' }}>
@@ -76,7 +79,7 @@ export const CardComponent = (props: CardComponentProps) => {
 
             <HStack>
               <Text fontWeight={'semibold'}>Date:</Text>
-              <Text>{date}</Text>
+              <Text>{formattedDate}</Text>
             </HStack>
 
             <HStack>

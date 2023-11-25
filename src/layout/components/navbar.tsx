@@ -69,7 +69,9 @@ export const Navbar = () => {
                     </Center>
 
                     <Center>
-                      <Text p={'10px'}>{userName}</Text>
+                      <Text textTransform={'capitalize'} p={'10px'}>
+                        {userName}
+                      </Text>
                     </Center>
 
                     <MenuDivider />

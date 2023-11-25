@@ -17,23 +17,17 @@ import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 export const FaqSection = () => {
   return (
-    <Container
-      as={'section'}
-      maxW={'6xl'}
-      p={'30px'}
-      minH={'70vh'}
-      display={'flex'}
-      alignItems={'center'}
-      justifyContent={'center'}>
-      <HStack w={'full'} gap={'30px'}>
+    <Container as={'section'} maxW={'6xl'} p={'70px'}>
+      <HStack spacing={'30px'}>
         <Box flex={1} display={{ base: 'none', md: 'flex' }}>
           <LazyLoadedImage alt={'image'} src={image} />
         </Box>
 
         <VStack flex={1} align={'stretch'} boxShadow={'2xl'} rounded={'lg'}>
-          <Heading fontSize={{ base: 'xl', sm: '2xl' }} textAlign={'center'} my={5}>
+          <Heading fontSize={{ base: 'xl', sm: '2xl' }} textAlign={'center'} my={'20px'}>
             FAQ
           </Heading>
+
           <Accordion allowMultiple rounded='lg'>
             <AccordionItem>
               <AccordionButton display='flex' alignItems='center' justifyContent='space-between' p={4}>

@@ -1,13 +1,5 @@
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Stack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import { ReactElement } from "react";
+import { Box, Button, Flex, Heading, Stack, Text, VStack, useColorModeValue } from '@chakra-ui/react';
+import { ReactElement } from 'react';
 
 interface CardProps {
   heading: string;
@@ -18,36 +10,28 @@ interface CardProps {
 
 export const CardComponent = ({ heading, description, icon }: CardProps) => {
   return (
-    <Box
-      maxW={{ base: "full", md: "275px" }}
-      w={"full"}
-      borderWidth="1px"
-      borderRadius="lg"
-      overflow="hidden"
-      p={5}
-    >
-      <Stack align={"start"} spacing={2}>
+    <Box borderWidth='2px' borderRadius='base' overflow='hidden' p={'30px 20px'}>
+      <VStack align={'start'} spacing={'20px'}>
         <Flex
           w={16}
           h={16}
-          align={"center"}
-          justify={"center"}
-          color={"white"}
-          rounded={"full"}
-          bg={useColorModeValue("gray.100", "gray.700")}
-        >
+          align={'center'}
+          justify={'center'}
+          color={'white'}
+          rounded={'full'}
+          bg={useColorModeValue('gray.100', 'gray.700')}>
           {icon}
         </Flex>
-        <Box mt={2}>
-          <Heading size="md">{heading}</Heading>
-          <Text mt={1} fontSize={"sm"}>
-            {description}
-          </Text>
-        </Box>
-        <Button variant={"link"} colorScheme={"blue"} size={"sm"}>
+
+        <VStack align={'start'}>
+          <Heading size='md'>{heading}</Heading>
+          <Text fontSize={'sm'}>{description}</Text>
+        </VStack>
+
+        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
           Learn more
         </Button>
-      </Stack>
+      </VStack>
     </Box>
   );
 };

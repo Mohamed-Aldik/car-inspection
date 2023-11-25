@@ -101,6 +101,7 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                         <option value='2023'>2023</option>
                         <option value='2022'>2022</option>
                         <option value='2021'>2021</option>
+                        <option value='2020'>2020</option>
                       </Select>
                       <FormErrorMessage>{errors.year?.message}</FormErrorMessage>
                     </FormControl>
@@ -122,9 +123,9 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                         onBlur={onBlur}
                         name={name}
                         placeholder='Select option'>
-                        <option value='bmw'>BMW</option>
-                        <option value='mercedes'>Mercedes</option>
-                        <option value='hyundai'>Hyundai</option>
+                        <option value='bmw'>Red</option>
+                        <option value='mercedes'>Green</option>
+                        <option value='hyundai'>Blue</option>
                       </Select>
                       <FormErrorMessage>{errors.color?.message}</FormErrorMessage>
                     </FormControl>

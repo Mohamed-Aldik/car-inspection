@@ -1,5 +1,5 @@
-import { Stack, Flex, Text } from "@chakra-ui/react";
-import { ReactElement } from "react";
+import { HStack, Flex, Text } from '@chakra-ui/react';
+import { ReactElement } from 'react';
 
 interface FeatureProps {
   text: string;
@@ -9,18 +9,11 @@ interface FeatureProps {
 
 export const FeatureComponent = ({ text, icon, iconBg }: FeatureProps) => {
   return (
-    <Stack direction={"row"} align={"center"}>
-      <Flex
-        w={8}
-        h={8}
-        align={"center"}
-        justify={"center"}
-        rounded={"full"}
-        bg={iconBg}
-      >
+    <HStack>
+      <Flex w={'35px'} h={'35px'} align={'center'} justify={'center'} rounded={'full'} bg={iconBg}>
         {icon}
       </Flex>
       <Text fontWeight={600}>{text}</Text>
-    </Stack>
+    </HStack>
   );
 };
