@@ -4,17 +4,17 @@ import { CalendarIcon, CheckIcon, PhoneIcon, RepeatClockIcon, StarIcon, TimeIcon
 
 export const StepsSection = () => {
   return (
-    <Container as={'section'} p={'70px'} maxW={'6xl'} mt={'-70px'}>
+    <Container as={'section'} py={'70px'} maxW={'6xl'} mt={'-70px'}>
       <VStack spacing={'30px'}>
         <VStack spacing={'10px'}>
           <Heading>Short heading</Heading>
 
-          <Text color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
+          <Text textAlign={'center'} color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
             Whether you are buying, selling or underwriting Carantee makes your business better
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing='30px'>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing='30px' w={'full'}>
           <CardComponent
             heading={'Heading'}
             icon={<Icon as={StarIcon} w={'35px'} h={'35px'} color={'red.500'} />}

@@ -8,7 +8,7 @@ export const HeroSection = () => {
   return (
     <Container
       as={'section'}
-      p={'70px'}
+      py={'70px'}
       maxW={'6xl'}
       minH='calc(100vh - 70px)'
       display={'flex'}

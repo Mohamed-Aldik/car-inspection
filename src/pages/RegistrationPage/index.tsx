@@ -5,12 +5,12 @@ import {
   FormLabel,
   Input,
   FormErrorMessage,
-  Flex,
   Stack,
   Text,
   Heading,
   useColorModeValue,
   Container,
+  VStack,
 } from '@chakra-ui/react';
 import { useRegisterFormHandler } from './hooks/use-register-form-handler';
 import { Layout } from '../../layout';
@@ -23,18 +23,29 @@ const RegistrationPage = () => {
 
   return (
     <Layout>
-      <Container as={Flex} align={'center'} minH='calc(100vh - 140px)'>
-        <Stack flex={1} spacing={8} py={12} px={6}>
-          <Stack align={'center'}>
-            <Heading fontSize={'4xl'} textAlign={'center'} textTransform={'uppercase'}>
-              Sign up
-            </Heading>
+      <Container
+        as={'section'}
+        py={'70px'}
+        maxW={'6xl'}
+        minH='calc(100vh - 140px)'
+        display={'flex'}
+        alignItems={'center'}
+        justifyContent={'center'}>
+        <VStack align={{ base: 'stretch', md: 'center' }} w={'full'} spacing={'30px'}>
+          <VStack spacing={'10px'}>
+            <Heading>Sign Up</Heading>
 
-            <Text fontSize={'lg'} color={'gray.600'}>
-              Welcom to Sign up page
+            <Text textAlign={'center'} color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
+              Meeting scheduling Made easy
             </Text>
-          </Stack>
-          <Box rounded={'lg'} bg={useColorModeValue('white', 'gray.700')} boxShadow={'lg'} p={8}>
+          </VStack>
+
+          <Box
+            rounded={'lg'}
+            bg={useColorModeValue('white', 'gray.700')}
+            boxShadow={'2xl'}
+            p={'10px'}
+            w={{ base: '100%', md: '50%' }}>
             <Stack as={'form'} p={4} onSubmit={handleSubmit(onSubmit)} spacing={4} noValidate>
               <FormControl isInvalid={!!errors.name} isRequired>
                 <FormLabel htmlFor='name'>Name</FormLabel>
@@ -91,7 +102,7 @@ const RegistrationPage = () => {
               </Stack>
             </Stack>
           </Box>
-        </Stack>
+        </VStack>
       </Container>
     </Layout>
   );

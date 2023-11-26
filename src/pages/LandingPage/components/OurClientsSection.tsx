@@ -4,12 +4,12 @@ import { usersInfo } from '../utils/user-info';
 
 export const OurClientsSection = () => {
   return (
-    <Container as={'section'} p={'70px'} maxW={'6xl'}>
+    <Container as={'section'} py={'70px'} maxW={'6xl'}>
       <VStack spacing={'30px'}>
         <VStack spacing={'10px'}>
           <Heading>Our Clients</Heading>
 
-          <Text color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
+          <Text textAlign={'center'} color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
             Lorem ipsum dolor sit, ipsum dolor sit
           </Text>
         </VStack>

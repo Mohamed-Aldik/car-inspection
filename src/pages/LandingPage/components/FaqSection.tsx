@@ -17,7 +17,7 @@ import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 export const FaqSection = () => {
   return (
-    <Container as={'section'} maxW={'6xl'} p={'70px'}>
+    <Container as={'section'} maxW={'6xl'} py={'70px'}>
       <HStack spacing={'30px'}>
         <Box flex={1} display={{ base: 'none', md: 'flex' }}>
           <LazyLoadedImage alt={'image'} src={image} />

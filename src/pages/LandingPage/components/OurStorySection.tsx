@@ -8,13 +8,13 @@ import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 export const OurStorySection = () => {
   return (
-    <Container id='story' as={'section'} p={'70px'} maxW={'6xl'}>
+    <Container id='story' as={'section'} py={'70px'} maxW={'6xl'}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={'30px'}>
         <VStack spacing={'30px'} align={'stretch'} justify={'center'}>
-          <VStack align={'stretch'} spacing={'10px'}>
+          <VStack align={{ base: 'center', md: 'stretch' }} spacing={'10px'}>
             <Heading>Our Story</Heading>
 
-            <Text color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
+            <Text textAlign={{ base: 'center', md: 'left' }} color={'gray.500'} fontSize={{ base: 'sm', sm: 'lg' }}>
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
             </Text>
           </VStack>
