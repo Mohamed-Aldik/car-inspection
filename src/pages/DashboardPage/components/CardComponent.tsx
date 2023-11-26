@@ -10,7 +10,6 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Stack,
   HStack,
   Tag,
   Box,
@@ -58,7 +57,7 @@ export const CardComponent = (props: CardComponentProps) => {
       </Box>
 
       <CardBody>
-        <Stack direction={{ base: 'column-reverse', md: 'row' }} align={'start'} justify={'space-between'}>
+        <Box position={'relative'}>
           <VStack align={'start'} spacing={'20px'}>
             <Heading fontWeight={'semibold'} size='md'>
               <Text textTransform={'uppercase'} display={'inline'}>
@@ -88,7 +87,7 @@ export const CardComponent = (props: CardComponentProps) => {
             </HStack>
           </VStack>
 
-          <HStack alignSelf={{ base: 'end', md: 'start' }} spacing={'10px'}>
+          <HStack position={'absolute'} top={0} right={0} spacing={'10px'}>
             {status === 'passed' && (
               <Badge variant='solid' p={'5px 20px'} colorScheme='green'>
                 PASSED
@@ -113,7 +112,7 @@ export const CardComponent = (props: CardComponentProps) => {
               </MenuList>
             </Menu>
           </HStack>
-        </Stack>
+        </Box>
       </CardBody>
     </Card>
   );

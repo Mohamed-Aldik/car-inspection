@@ -14,7 +14,7 @@ import {
   Input,
   Stack,
   Select,
-  HStack,
+  VStack,
 } from '@chakra-ui/react';
 import { cloneElement } from 'react';
 import { useAddNewInspectionFormHandler } from '../hooks/useAddNewInspectionFormHandler';
@@ -41,16 +41,17 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
           <ModalCloseButton />
 
           <ModalBody>
-            <Stack
+            <VStack
               as={'form'}
               id='inspectionId'
-              p={4}
+              p={'10px'}
+              align={'stretch'}
               onSubmit={handleSubmit((data) => onSubmit(data, onClose))}
-              spacing={4}
+              spacing={'10px'}
               noValidate>
               <ImageUploader setValue={setValue} errMsg={errors.image?.message} />
 
-              <HStack spacing={'30px'}>
+              <Stack spacing={{ base: '10px', md: '30px' }} direction={{ base: 'column', md: 'row' }}>
                 <FormControl isInvalid={!!errors.date} isRequired>
                   <FormLabel htmlFor='date'>Date</FormLabel>
                   <Input id='date' type='date' {...register('date')} />
@@ -80,9 +81,9 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                     </FormControl>
                   )}
                 />
-              </HStack>
+              </Stack>
 
-              <HStack spacing={'30px'}>
+              <Stack spacing={{ base: '10px', md: '30px' }} direction={{ base: 'column', md: 'row' }}>
                 <Controller
                   control={control}
                   name='year'
@@ -131,9 +132,9 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                     </FormControl>
                   )}
                 />
-              </HStack>
+              </Stack>
 
-              <HStack spacing={'30px'}>
+              <Stack spacing={{ base: '10px', md: '30px' }} direction={{ base: 'column', md: 'row' }}>
                 <FormControl isInvalid={!!errors.numberPlate} isRequired>
                   <FormLabel htmlFor='numberPlate'>Number Plate</FormLabel>
                   <Input placeholder='Number Plate' id='numberPlate' type='text' {...register('numberPlate')} />
@@ -145,18 +146,18 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                   <Input placeholder='Model' id='model' type='text' {...register('model')} />
                   <FormErrorMessage>{errors.model?.message}</FormErrorMessage>
                 </FormControl>
-              </HStack>
+              </Stack>
 
               <FormControl isInvalid={!!errors.vinNumber} isRequired>
                 <FormLabel htmlFor='vinNumber'>Vin number</FormLabel>
                 <Input placeholder='Vin number' id='vinNumber' type='text' {...register('vinNumber')} />
                 <FormErrorMessage>{errors.vinNumber?.message}</FormErrorMessage>
               </FormControl>
-            </Stack>
+            </VStack>
           </ModalBody>
 
           <ModalFooter>
-            <Button variant='ghost' mr={3} onClick={onClose}>
+            <Button variant='ghost' mr={'30px'} onClick={onClose}>
               Close
             </Button>
 
