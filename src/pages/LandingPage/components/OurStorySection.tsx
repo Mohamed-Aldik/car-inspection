@@ -7,7 +7,7 @@ import image01 from '../../../assets/imgs/our-story.png';
 
 export const OurStorySection = () => {
   return (
-    <Container id='story' as={'section'} py={'48px'} maxW={'6xl'}>
+    <Container id='story' as={'section'} py={'48px'} maxW={'6xl'} mt={'-48px'}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={'30px'}>
         <VStack spacing={'30px'} align={'stretch'} justify={'center'}>
           <VStack align={{ base: 'center', md: 'stretch' }} spacing={'10px'}>

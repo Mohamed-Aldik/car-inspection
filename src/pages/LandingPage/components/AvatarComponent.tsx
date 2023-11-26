@@ -44,7 +44,7 @@ export const AvatarComponent = ({ name, subName, title, subTitle }: AvatarCompon
       </Stack>
 
       <Flex align={'center'} mt={8} direction={'column'}>
-        <Avatar mb={2} />
+        <Avatar mb={2} bg='red.500' />
 
         <Stack spacing={-1} align={'center'}>
           <Text fontWeight={600}>{name}</Text>

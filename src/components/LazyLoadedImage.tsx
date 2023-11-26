@@ -6,7 +6,7 @@ interface LazyLoadedImageProps extends ImageProps {
   alt: string;
 }
 
-export const LazyLoadedImage = ({ src, alt, ...props }: LazyLoadedImageProps) => {
+export const LazyLoadedImage = ({ src, alt, ...rest }: LazyLoadedImageProps) => {
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
@@ -34,5 +34,5 @@ export const LazyLoadedImage = ({ src, alt, ...props }: LazyLoadedImageProps) =>
     };
   }, [src]);
 
-  return <Image ref={imgRef} src='' data-src={src} alt={alt} loading='lazy' {...props} />;
+  return <Image ref={imgRef} src='' data-src={src} alt={alt} loading='lazy' {...rest} />;
 };
