@@ -33,7 +33,7 @@ const DashboardPage = () => {
 
   return (
     <Layout>
-      <Container as={'section'} py={'70px'} maxW={'6xl'} minH='calc(100vh - 140px)'>
+      <Container as={'section'} py={'40px'} maxW={'6xl'} minH='calc(100vh - 140px)'>
         <HStack p={'md'} align={'center'} justifyContent={'space-between'} mb={'30px'}>
           <Heading size={{ base: 'md', md: 'lg' }}>
             Dashboard

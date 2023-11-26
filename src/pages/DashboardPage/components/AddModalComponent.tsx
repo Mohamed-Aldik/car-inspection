@@ -13,13 +13,27 @@ import {
   FormLabel,
   Input,
   Stack,
-  Select,
   VStack,
 } from '@chakra-ui/react';
 import { cloneElement } from 'react';
 import { useAddNewInspectionFormHandler } from '../hooks/useAddNewInspectionFormHandler';
 import { Controller } from 'react-hook-form';
 import { ImageUploader } from './ImageUploader';
+import { yearObj } from '../utils/yearOption';
+import { makeObj } from '../utils/makeOption';
+import { ChakraSelect } from '../../../components/ChakraSelect';
+import { colorObj } from '../utils/colorOption';
+
+type TOption = {
+  value: string;
+  label: string;
+};
+
+const colorOptions: TOption[] = Object.values(colorObj).map(({ slug, name }) => ({ value: slug, label: name }));
+
+const yearOptions: TOption[] = Object.values(yearObj).map(({ slug, name }) => ({ value: slug, label: name }));
+
+const makeOptions: TOption[] = Object.values(makeObj).map(({ slug, name }) => ({ value: slug, label: name }));
 
 interface AddModalProps {
   trigger: JSX.Element;
@@ -54,7 +68,7 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
               <Stack spacing={{ base: '10px', md: '30px' }} direction={{ base: 'column', md: 'row' }}>
                 <FormControl isInvalid={!!errors.date} isRequired>
                   <FormLabel htmlFor='date'>Date</FormLabel>
-                  <Input id='date' type='date' {...register('date')} />
+                  <Input id='date' type='date' placeholder='Select a date' {...register('date')} />
                   <FormErrorMessage>{errors.date?.message}</FormErrorMessage>
                 </FormControl>
 
@@ -65,18 +79,17 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                     <FormControl isInvalid={!!errors.make} isRequired>
                       <FormLabel htmlFor='make'>Make</FormLabel>
 
-                      <Select
+                      <ChakraSelect
                         id='make'
                         variant='outline'
                         value={value}
                         onChange={onChange}
                         onBlur={onBlur}
                         name={name}
-                        placeholder='Select option'>
-                        <option value='bmw'>BMW</option>
-                        <option value='mercedes'>Mercedes</option>
-                        <option value='hyundai'>Hyundai</option>
-                      </Select>
+                        placeholder='Select option'
+                        options={makeOptions}
+                      />
+
                       <FormErrorMessage>{errors.make?.message}</FormErrorMessage>
                     </FormControl>
                   )}
@@ -91,19 +104,17 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                     <FormControl isInvalid={!!errors.year} isRequired>
                       <FormLabel htmlFor='year'>Year</FormLabel>
 
-                      <Select
+                      <ChakraSelect
                         id='year'
                         variant='outline'
                         value={value}
                         onChange={onChange}
                         onBlur={onBlur}
                         name={name}
-                        placeholder='Select option'>
-                        <option value='2023'>2023</option>
-                        <option value='2022'>2022</option>
-                        <option value='2021'>2021</option>
-                        <option value='2020'>2020</option>
-                      </Select>
+                        placeholder='Select option'
+                        options={yearOptions}
+                      />
+
                       <FormErrorMessage>{errors.year?.message}</FormErrorMessage>
                     </FormControl>
                   )}
@@ -116,18 +127,17 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
                     <FormControl isInvalid={!!errors.color} isRequired>
                       <FormLabel htmlFor='color'>Color</FormLabel>
 
-                      <Select
+                      <ChakraSelect
                         id='color'
                         variant='outline'
                         value={value}
                         onChange={onChange}
                         onBlur={onBlur}
                         name={name}
-                        placeholder='Select option'>
-                        <option value='bmw'>Red</option>
-                        <option value='mercedes'>Green</option>
-                        <option value='hyundai'>Blue</option>
-                      </Select>
+                        placeholder='Select option'
+                        options={colorOptions}
+                      />
+
                       <FormErrorMessage>{errors.color?.message}</FormErrorMessage>
                     </FormControl>
                   )}
@@ -137,20 +147,39 @@ export const AddModalComponent = ({ trigger }: AddModalProps) => {
               <Stack spacing={{ base: '10px', md: '30px' }} direction={{ base: 'column', md: 'row' }}>
                 <FormControl isInvalid={!!errors.numberPlate} isRequired>
                   <FormLabel htmlFor='numberPlate'>Number Plate</FormLabel>
-                  <Input placeholder='Number Plate' id='numberPlate' type='text' {...register('numberPlate')} />
+                  <Input
+                    placeholder='Number Plate'
+                    _placeholder={{ color: 'black' }}
+                    id='numberPlate'
+                    type='text'
+                    {...register('numberPlate')}
+                  />
                   <FormErrorMessage>{errors.numberPlate?.message}</FormErrorMessage>
                 </FormControl>
 
                 <FormControl isInvalid={!!errors.model} isRequired>
                   <FormLabel htmlFor='model'>Model</FormLabel>
-                  <Input placeholder='Model' id='model' type='text' {...register('model')} />
+
+                  <Input
+                    placeholder='Model'
+                    _placeholder={{ color: 'black' }}
+                    id='model'
+                    type='text'
+                    {...register('model')}
+                  />
                   <FormErrorMessage>{errors.model?.message}</FormErrorMessage>
                 </FormControl>
               </Stack>
 
               <FormControl isInvalid={!!errors.vinNumber} isRequired>
                 <FormLabel htmlFor='vinNumber'>Vin number</FormLabel>
-                <Input placeholder='Vin number' id='vinNumber' type='text' {...register('vinNumber')} />
+                <Input
+                  placeholder='Vin number'
+                  _placeholder={{ color: 'black' }}
+                  id='vinNumber'
+                  type='text'
+                  {...register('vinNumber')}
+                />
                 <FormErrorMessage>{errors.vinNumber?.message}</FormErrorMessage>
               </FormControl>
             </VStack>

@@ -61,7 +61,7 @@ export const CardComponent = (props: CardComponentProps) => {
           <VStack align={'start'} spacing={'20px'}>
             <Heading fontWeight={'semibold'} size='md'>
               <Text textTransform={'uppercase'}>{make}</Text>
-              <Text>({model})</Text>
+              <Text fontSize={'lg'}>({model})</Text>
             </Heading>
 
             <HStack>

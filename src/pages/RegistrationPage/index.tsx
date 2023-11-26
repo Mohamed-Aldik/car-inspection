@@ -45,7 +45,7 @@ const RegistrationPage = () => {
             bg={useColorModeValue('white', 'gray.700')}
             boxShadow={'2xl'}
             p={'10px'}
-            w={{ base: '100%', md: '50%' }}>
+            w={{ base: '100%', md: '40%' }}>
             <Stack as={'form'} p={4} onSubmit={handleSubmit(onSubmit)} spacing={4} noValidate>
               <FormControl isInvalid={!!errors.name} isRequired>
                 <FormLabel htmlFor='name'>Name</FormLabel>
