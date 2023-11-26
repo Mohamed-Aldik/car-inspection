@@ -35,14 +35,19 @@ const DashboardPage = () => {
     <Layout>
       <Container as={'section'} py={'70px'} maxW={'6xl'} minH='calc(100vh - 140px)'>
         <HStack p={'md'} align={'center'} justifyContent={'space-between'} mb={'30px'}>
-          <Heading size={'lg'}>
+          <Heading size={{ base: 'md', md: 'lg' }}>
             Dashboard
-            {isFakeLoading && <Spinner ml='10px' color='red.500' />}
+            {isFakeLoading && <Spinner size={{ base: 'sm', md: 'md' }} ml='10px' color='red.500' />}
           </Heading>
 
           <AddModalComponent
             trigger={
-              <Button leftIcon={<AddIcon />} colorScheme='red' title='add new inspection' variant='solid'>
+              <Button
+                leftIcon={<AddIcon />}
+                size={{ base: 'sm', md: 'md' }}
+                colorScheme='red'
+                title='add new inspection'
+                variant='solid'>
                 New inspection
               </Button>
             }

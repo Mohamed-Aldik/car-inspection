@@ -87,7 +87,7 @@ export const CardComponent = (props: CardComponentProps) => {
             </HStack>
           </VStack>
 
-          <HStack position={'absolute'} top={0} right={0} spacing={'10px'}>
+          <HStack position={'absolute'} top={'-10px'} right={'-10px'} spacing={'10px'}>
             {status === 'passed' && (
               <Badge variant='solid' p={'5px 20px'} colorScheme='green'>
                 PASSED
