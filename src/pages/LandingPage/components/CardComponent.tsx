@@ -10,7 +10,7 @@ interface CardProps {
 
 export const CardComponent = ({ heading, description, icon }: CardProps) => {
   return (
-    <Box borderWidth='2px' borderRadius='base' overflow='hidden' p={'30px 20px'}>
+    <Box borderWidth='2px' rounded={'lg'} overflow='hidden' p={'30px 20px'}>
       <VStack align={'start'} spacing={'20px'}>
         <Flex
           w={16}
