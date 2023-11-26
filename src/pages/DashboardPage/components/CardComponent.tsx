@@ -60,10 +60,8 @@ export const CardComponent = (props: CardComponentProps) => {
         <Box position={'relative'}>
           <VStack align={'start'} spacing={'20px'}>
             <Heading fontWeight={'semibold'} size='md'>
-              <Text textTransform={'uppercase'} display={'inline'}>
-                {make}
-              </Text>
-              {model}
+              <Text textTransform={'uppercase'}>{make}</Text>
+              <Text>({model})</Text>
             </Heading>
 
             <HStack>
@@ -102,7 +100,7 @@ export const CardComponent = (props: CardComponentProps) => {
 
             <Menu>
               <MenuButton as={IconButton} aria-label='Options' icon={<ThreeDotsVerticalIcon />} variant='ghost' />
-              <MenuList>
+              <MenuList zIndex={'999'}>
                 <MenuItem icon={<EditIcon />} command='soon'>
                   Edit
                 </MenuItem>

@@ -1,10 +1,9 @@
-import { SimpleGrid, Heading, StackDivider, Text, Container, VStack } from '@chakra-ui/react';
+import { SimpleGrid, Image, Heading, StackDivider, Text, Container, VStack } from '@chakra-ui/react';
 import { FeatureComponent } from './FeatureComponent';
 import { IoAnalyticsSharpIcon } from '../icons/IoAnalyticsSharpIcon';
 import { IoLogoBitcoinIcon } from '../icons/IoLogoBitcoinIcon';
 import { IoSearchSharpIcon } from '../icons/IoSearchSharpIcon';
-import image from '../../../assets/imgs/our-story.png';
-import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
+import image01 from '../../../assets/imgs/our-story.png';
 
 export const OurStorySection = () => {
   return (
@@ -28,7 +27,7 @@ export const OurStorySection = () => {
           </VStack>
         </VStack>
 
-        <LazyLoadedImage rounded={'md'} alt={'feature image'} src={image} objectFit={'cover'} />
+        <Image rounded={'md'} alt={'feature image'} src={image01} objectFit={'cover'} />
       </SimpleGrid>
     </Container>
   );

@@ -9,18 +9,18 @@ import {
   Box,
   VStack,
   Container,
+  Image,
 } from '@chakra-ui/react';
 
 import { ChevronDownIcon } from '@chakra-ui/icons';
-import image from '../../../assets/imgs/faq.png';
-import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
+import image01 from '../../../assets/imgs/faq.png';
 
 export const FaqSection = () => {
   return (
     <Container as={'section'} maxW={'6xl'} py={'70px'}>
       <HStack spacing={'30px'}>
         <Box flex={1} display={{ base: 'none', md: 'flex' }}>
-          <LazyLoadedImage alt={'image'} src={image} />
+          <Image alt={'image'} src={image01} />
         </Box>
 
         <VStack flex={1} align={'stretch'} boxShadow={'2xl'} rounded={'lg'}>

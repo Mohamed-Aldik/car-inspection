@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import { Box, Stack, SimpleGrid, Text, Flex, useColorModeValue, Input, IconButton } from '@chakra-ui/react';
+import { Box, Stack, Image, SimpleGrid, Text, Flex, useColorModeValue, Input, IconButton } from '@chakra-ui/react';
 import { EmailIcon } from '@chakra-ui/icons';
-import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
   return (
@@ -102,14 +101,16 @@ export const FooterSection = () => {
           flexGrow: 1,
           ml: 8,
         }}>
-        <LazyLoadedImage
-          src='https://www.emiratesauction.com/assets/latestHome/header/EnglishLogo.svg'
-          alt='EA-logo'
-          width='186px'
-          height='48px'
-          loading='lazy'
-          rel='preload'
-        />
+        <Box as={'a'} href='#main'>
+          <Image
+            src='https://www.emiratesauction.com/assets/latestHome/header/EnglishLogo.svg'
+            alt='EA-logo'
+            width='186px'
+            height='48px'
+            loading='lazy'
+            rel='preload'
+          />
+        </Box>
       </Flex>
     </Box>
   );

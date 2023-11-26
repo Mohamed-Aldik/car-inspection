@@ -1,12 +1,12 @@
-import { Container, Button, VStack, Heading, HStack, Text } from '@chakra-ui/react';
+import { Container, Button, Image, VStack, Heading, HStack, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { URL } from '../../../utils/constants';
 import carImage from '../../../assets/imgs/inspection-car.png';
-import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 export const HeroSection = () => {
   return (
     <Container
+      id='main'
       as={'section'}
       py={'70px'}
       maxW={'6xl'}
@@ -45,7 +45,7 @@ export const HeroSection = () => {
           </Button>
         </HStack>
 
-        <LazyLoadedImage alt={'main image'} src={carImage} />
+        <Image alt={'main image'} src={carImage} />
       </VStack>
     </Container>
   );

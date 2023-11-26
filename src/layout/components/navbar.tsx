@@ -11,6 +11,7 @@ import {
   Stack,
   Center,
   Text,
+  Image,
 } from '@chakra-ui/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
@@ -18,7 +19,6 @@ import { logOut } from '../../redux/slices/userSlice';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { LocalStorageKeys, URL } from '../../utils/constants';
 import { useIsLoggedIn } from '../../hooks/useIsLoggedIn';
-import { LazyLoadedImage } from '../../components/LazyLoadedImage';
 
 export const Navbar = () => {
   const userName = useSelector((state: RootState) => state.user.user?.name);
@@ -41,7 +41,7 @@ export const Navbar = () => {
       <Box as={'nav'} bg={'#272c34'} px={4}>
         <Flex h={'70px'} alignItems={'center'} justifyContent={'space-between'}>
           <Box as={Link} to={URL.LANDING_PAGE}>
-            <LazyLoadedImage
+            <Image
               src='https://www.emiratesauction.com/assets/latestHome/header/EnglishLogo.svg'
               alt='EA-logo'
               loading='lazy'
