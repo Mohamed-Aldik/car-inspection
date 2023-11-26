@@ -4,7 +4,7 @@ import { usersInfo } from '../utils/user-info';
 
 export const OurClientsSection = () => {
   return (
-    <Container as={'section'} py={'70px'} maxW={'6xl'}>
+    <Container as={'section'} py={'48px'} maxW={'6xl'}>
       <VStack spacing={'30px'}>
         <VStack spacing={'10px'}>
           <Heading>Our Clients</Heading>

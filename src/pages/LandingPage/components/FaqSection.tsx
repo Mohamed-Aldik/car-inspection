@@ -17,7 +17,7 @@ import image01 from '../../../assets/imgs/faq.png';
 
 export const FaqSection = () => {
   return (
-    <Container as={'section'} maxW={'6xl'} py={'70px'}>
+    <Container as={'section'} maxW={'6xl'} py={'48px'}>
       <HStack spacing={'30px'}>
         <Box flex={1} display={{ base: 'none', md: 'flex' }}>
           <Image alt={'image'} src={image01} />

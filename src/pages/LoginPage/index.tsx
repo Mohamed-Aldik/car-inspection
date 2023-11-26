@@ -17,8 +17,11 @@ import { Layout } from '../../layout';
 import { URL } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { PasswordInput } from '../../components/passwordInput';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 
 const LoginPage = () => {
+  useDocumentTitle('Car Inspection | Sign In');
+
   const { errors, handleSubmit, register, onSubmit } = useLoginFormHandler();
 
   return (

@@ -1,3 +1,4 @@
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 import { Layout } from '../../layout';
 import { FaqSection } from './components/FaqSection';
 import { FooterSection } from './components/FooterSection';
@@ -8,6 +9,8 @@ import { SocialMediaComponent } from './components/SocialMediaComponent';
 import { StepsSection } from './components/StepsSection';
 
 const LandingPage = () => {
+  useDocumentTitle('Car Inspection');
+
   return (
     <Layout>
       <HeroSection />

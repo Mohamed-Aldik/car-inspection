@@ -18,8 +18,11 @@ import { CardComponent } from './components/CardComponent';
 import { useGetInspectionData } from './hooks/useGetInspectionData';
 import { CardSkeleton } from './components/CardSkeleton';
 import { useEffect, useState } from 'react';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 
 const DashboardPage = () => {
+  useDocumentTitle('Car Inspection | Dashboard');
+
   const [isFakeLoading, setIsFakeLoading] = useState(true);
 
   const inspectionData = useGetInspectionData();

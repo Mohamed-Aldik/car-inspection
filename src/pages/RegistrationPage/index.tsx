@@ -17,8 +17,11 @@ import { Layout } from '../../layout';
 import { URL } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { PasswordInput } from '../../components/passwordInput';
+import { useDocumentTitle } from '../../hooks/useDocumentTitle';
 
 const RegistrationPage = () => {
+  useDocumentTitle('Car Inspection | Sign Up');
+
   const { errors, handleSubmit, register, onSubmit } = useRegisterFormHandler();
 
   return (

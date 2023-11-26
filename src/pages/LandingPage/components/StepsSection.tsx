@@ -4,7 +4,7 @@ import { CalendarIcon, CheckIcon, PhoneIcon, RepeatClockIcon, StarIcon, TimeIcon
 
 export const StepsSection = () => {
   return (
-    <Container as={'section'} py={'70px'} maxW={'6xl'} mt={'-70px'}>
+    <Container as={'section'} py={'48px'} maxW={'6xl'} mt={{ base: '-100px', md: '-140px' }}>
       <VStack spacing={'30px'}>
         <VStack spacing={'10px'}>
           <Heading>Short heading</Heading>
