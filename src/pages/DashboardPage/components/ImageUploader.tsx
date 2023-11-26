@@ -1,7 +1,6 @@
 import { AddIcon } from '@chakra-ui/icons';
-import { FormControl, FormLabel, Input, Box, VStack, FormErrorMessage } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Box, VStack, FormErrorMessage, Image } from '@chakra-ui/react';
 import { useState } from 'react';
-import { LazyLoadedImage } from '../../../components/LazyLoadedImage';
 
 interface ImageUploaderProps {
   setValue: any;
@@ -13,7 +12,9 @@ export const ImageUploader = ({ setValue, errMsg }: ImageUploaderProps) => {
 
   const handleImageChange = (event: any) => {
     const file = event.target.files[0];
+
     setSelectedImage(file);
+
     const reader = new FileReader();
 
     reader.onload = (e: any) => {
@@ -52,7 +53,7 @@ export const ImageUploader = ({ setValue, errMsg }: ImageUploaderProps) => {
 
       {selectedImage && (
         <Box mt={4}>
-          <LazyLoadedImage src={URL.createObjectURL(selectedImage)} alt='car' maxW={'350px'} />
+          <Image src={URL.createObjectURL(selectedImage)} alt='car' maxW={'350px'} />
         </Box>
       )}
     </VStack>
